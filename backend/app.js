@@ -11,6 +11,8 @@ const {
   createUser,
 } = require('./controllers/users');
 
+const allowedCors = require('./utils/utils');
+
 const { validatySignup, validatySignin } = require('./middlewares/validity');
 
 const NotFoundError = require('./errors/NotFoundError');
@@ -28,6 +30,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
+app.use(allowedCors);
 
 app.use(bodyParser.json()); // Собирание json
 app.use(bodyParser.urlencoded({ extended: true })); // Приём страниц внутри Post-запроса
