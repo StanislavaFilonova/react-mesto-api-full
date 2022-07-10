@@ -1,0 +1,16 @@
+.popup__wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 282px;
+  max-height: calc(100vh - 80px);
+
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+@media (min-width: 1024px) {
+  .popup__wrapper {
+    max-width: 430px;
+  }
+}

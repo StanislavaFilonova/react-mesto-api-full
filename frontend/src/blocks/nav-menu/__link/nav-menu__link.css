@@ -1,0 +1,22 @@
+.nav-menu__link {
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s linear;
+    text-decoration-line: none;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.nav-menu__link:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+@media (min-width: 1024px) {
+    .nav-menu__link {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

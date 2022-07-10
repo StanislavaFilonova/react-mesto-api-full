@@ -1,0 +1,14 @@
+.auth__login-links {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+    display: inline;
+    visibility: visible;
+}
+
+.auth__login-links:hover{
+    opacity: 0.6;
+}
