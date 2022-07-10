@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const {
   login,
   createUser,
@@ -37,6 +38,8 @@ app.use(bodyParser.json()); // Собирание json
 app.use(bodyParser.urlencoded({ extended: true })); // Приём страниц внутри Post-запроса
 app.use(cookieParser());
 
+app.use(requestLogger); // подключаем логгер запросов
+
 app.post('/signin', validatySignin, login);
 app.post('/signup', validatySignup, createUser);
 
@@ -44,6 +47,8 @@ app.post('/signup', validatySignup, createUser);
 app.use(auth);
 app.use(usersRoute);
 app.use(cardsRoute);
+
+app.use(errorLogger); // подключаем логгер ошибок
 
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден.'));
