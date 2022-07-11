@@ -1,0 +1,9 @@
+.card__rate {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  max-width: 22px;
+  padding: 0;
+  width: 100%;
+}

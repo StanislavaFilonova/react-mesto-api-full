@@ -1,0 +1,14 @@
+.popup__message-image {
+    width: 120px;
+    height: 120px;
+  
+    padding: 0;
+    padding-top: 60px;
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 550px) {
+    .popup__message-image {
+      padding-top: 50px;
+    }
+  }

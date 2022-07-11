@@ -1,0 +1,19 @@
+
+.profile__button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 120px;
+    padding: 0;
+    transition: background-color .2s ease-in;
+    width: 120px;
+    align-self: center;
+}
+
+.profile__button:hover {
+    background-color: rgba(0,0,0,.8);
+    background-image: url(../../../images/Pencil.svg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+}

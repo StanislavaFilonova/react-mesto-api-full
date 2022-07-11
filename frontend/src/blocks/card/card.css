@@ -1,0 +1,19 @@
+.card {
+  background-color: #fff;
+  width: 282px;
+  border-radius: 10px;
+  z-index: 1;
+  margin-bottom: 20px;
+  position: relative;
+  list-style-type: none;
+}
+
+.card:last-of-type {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    margin-bottom: 0;
+  }
+}
