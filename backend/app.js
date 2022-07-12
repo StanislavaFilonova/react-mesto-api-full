@@ -48,11 +48,11 @@ app.use(auth);
 app.use(usersRoute);
 app.use(cardsRoute);
 
-app.use(errorLogger); // подключаем логгер ошибок
-
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден.'));
 });
+
+app.use(errorLogger); // подключаем логгер ошибок
 
 // обработка ошибок celebrate по умолчанию
 app.use(errors());
