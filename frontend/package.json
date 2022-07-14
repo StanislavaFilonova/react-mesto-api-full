@@ -9,7 +9,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ~/Desktop/dev/react-mesto-auth/build/* _stanislava@51.250.6.23:/home/_stanislava/react-mesto-api-full/mesto-frontend"
+    "deploy": "npm run build && scp -r ~/Desktop/dev/react-mesto-api-full/frontend/build/* _stanislava@51.250.6.23:/home/_stanislava/react-mesto-api-full/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +40,5 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
-  },
-  "homepage": "."
+  }
 }
