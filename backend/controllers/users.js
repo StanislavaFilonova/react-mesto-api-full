@@ -31,7 +31,8 @@ const login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000,
         httpOnly: true,
-        sameSite: true,
+        sameSite: 'None',
+        secure: true,
       });
       // вернём токен
       res.send({ token });
@@ -80,7 +81,7 @@ const getCurrentUser = (req, res, next) => {
       if (user == null) {
         next(new NotFoundError('Пользователь с данным Id не найден'));
       } else {
-        res.status(200).send({ data: user });
+        res.status(200).send(user);
       }
     })
     .catch((err) => {
@@ -143,7 +144,7 @@ const updateProfile = (req, res, next) => {
       if (!user) {
         next(new NotFoundError('Пользователь по указанному _id не найден.'));
       } else {
-        res.status(200).send({ data: user });
+        res.status(200).send(user);
       }
     })
     .catch((err) => {
@@ -163,7 +164,7 @@ const updateAvatar = (req, res, next) => {
       if (!user) {
         next(new NotFoundError('Пользователь по указанному _id не найден.'));
       } else {
-        res.status(200).send({ user });
+        res.status(200).send(user);
       }
     })
     .catch((err) => {
