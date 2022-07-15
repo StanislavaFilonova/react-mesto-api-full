@@ -59,16 +59,17 @@ class Auth {
             //эдпойнт
             method: "GET",
             headers: {
-                Accept: "application/json",
+                "Accept": "application/json",
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
+                "Authorization": `Bearer ${token}`
             },
         }).then(this._checkResponse);
     }
 }
 
 const auth = new Auth({
-    baseUrl: "https://auth.nomoreparties.co",
+    // baseUrl: "https://auth.nomoreparties.co",
+    baseUrl: "https://api.mesto.filonova.nomorepartiesxyz.ru",
 });
 
 export default auth;
