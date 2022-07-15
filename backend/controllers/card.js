@@ -15,7 +15,7 @@ const ForbiddenError = require('../errors/ForbiddenError');
 
 // GET /cards — возвращает все карточки
 const getCards = (req, res, next) => Card.find({})
-  .then((cards) => res.status(200).send({ data: cards }))
+  .then((cards) => res.status(200).send(cards))
   .catch(next);
 
 // POST /cards — создаёт карточку
@@ -24,7 +24,7 @@ const createCard = (req, res, next) => {
   const owner = req.user._id;
 
   return Card.create({ name, link, owner })
-    .then((card) => res.status(200).send({ data: card }))
+    .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании карточки.'));
@@ -65,7 +65,7 @@ const likeCard = (req, res, next) => {
       if (card == null) {
         next(new NotFoundError('Карточка с данным id не найдена.'));
       } else {
-        res.status(200).send({ data: card });
+        res.status(200).send(card);
       }
     })
     .catch((err) => {
@@ -88,7 +88,7 @@ const dislikeCard = (req, res, next) => {
       if (card == null) {
         next(new NotFoundError('Карточка с данным id не найдена.'));
       } else {
-        res.status(200).send({ data: card });
+        res.status(200).send(card);
       }
     })
     .catch((err) => {
