@@ -165,7 +165,7 @@ function App() {
         if (jwt) {
             auth.checkToken(jwt)
                 .then((res) => {
-                    setEmail(res.data.email);
+                    setEmail(res.email);
                     setIsLoggedIn(true);
                     history.push("/home");
                 })
@@ -250,7 +250,7 @@ function App() {
     // Установка лайка карточкам
     function handleCardLike(card) {
         // Ввод переменной, где мы проверяем при помощи метода some, удовлетворяет ли какой-либо элемент массива условию, заданному в передаваемой функции.
-        const isLiked = card.likes.some((like) => like._id === currentUser._id);
+        const isLiked = card.likes.some((like) => like === currentUser._id);
         api.changeLike(card._id, !isLiked)
             .then((res) => {
                 setCards((condition) =>
