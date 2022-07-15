@@ -1,5 +1,6 @@
 # react-mesto-api-full
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
   
-Публичный IP: 51.250.6.23
-Домен для обращения: mesto.filonova.nomorepartiesxyz.ru; api.mesto.filonova.nomorepartiesxyz.ru
+Публичный IP адрес: 51.250.6.23
+Ссылка на домен фронта: mesto.filonova.nomorepartiesxyz.ru; 
+Ссылка на домен сервера: api.mesto.filonova.nomorepartiesxyz.ru
