@@ -5,7 +5,6 @@ const Unauthorized = require('../errors/UnauthorizedError');
 
 /* eslint-disable consistent-return */
 module.exports = (req, res, next) => {
-
   // const token = req.cookies.jwt;
   const { authorization } = req.headers;
   const token = authorization.replace('Bearer ', '');
