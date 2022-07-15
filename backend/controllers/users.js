@@ -33,10 +33,9 @@ const login = (req, res, next) => {
         httpOnly: true,
         sameSite: 'None',
         secure: true,
-      })
+      });
       // вернём токен
-    .status(200).send({ id: user._id });
-      // res.send({ token });
+      res.send({ token });
       // аутентификация успешна! пользователь в переменной user
     })
     .catch(() => {
