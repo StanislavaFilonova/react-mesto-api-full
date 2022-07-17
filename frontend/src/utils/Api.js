@@ -155,7 +155,11 @@ class Api {
         const url = `${this._baseUrl}/cards/likes/${cardId}`;
         const opts = {
             method: like ? "PUT" : "DELETE",
-            headers: this._headers,
+            headers: {
+                'Content-Type': "application/json",
+                credentials: 'include',
+                Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
         };
 
         return fetch(url, opts).then(this._checkResponse);

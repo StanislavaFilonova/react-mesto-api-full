@@ -2,10 +2,13 @@ import React from "react";
 // Импортируем изображение, чтобы оно отображалось на страничке
 import vector from "../images/vector.svg";
 import { Switch, Route, Link } from "react-router-dom";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 /**
  *  Функция: Создание компонента Header, который отвечает за прорисовку логотипа и меню на сайте
  */
 function Header(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
     return (
         <header className="header">
             <img src={vector} alt="Логотип сервиса" className="header__logo" />
@@ -16,13 +19,14 @@ function Header(props) {
                     </Link>
                 </Route>
                 <Route exact path="/signup">
-                    <Link to="/signin" className="nav-menu__link">
+                    <Link to="/signin"
+                          className="nav-menu__link">
                         Войти
                     </Link>
                 </Route>
                 <Route exact path="/home">
                     <div className="nav-menu">
-                        <p className="nav-menu__text">{props.email}</p>
+                        <p className="nav-menu__text">{`${currentUser.email}`}</p>
                         <Link
                             to="/signin"
                             className="nav-menu__link"

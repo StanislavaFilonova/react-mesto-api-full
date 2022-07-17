@@ -337,7 +337,7 @@ function App() {
         <div className="page">
             <CurrentUserContext.Provider value={currentUser}>
                 {/*текущее значение контекста из ближайшего подходящего Provider выше в дереве компонентов.*/}
-                <Header email={email} onSignOut={handleSignOut} />
+                <Header email={email} onSignOut={handleSignOut}/>
                 <Switch>
                     <ProtectedRoute
                         exact
