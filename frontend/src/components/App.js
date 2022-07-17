@@ -160,22 +160,41 @@ function App() {
         []
     );
     // Проверяем есть ли токен в хранилище, если он есть, устанавливаем адрес почты и отпраляем пользователя на домашнюю страницу
+    // function handleIsToken() {
+    //     const jwt = localStorage.getItem("jwt");
+    //     if (jwt) {
+    //         auth.checkToken(jwt)
+    //             .then((res) => {
+    //                 setEmail(res.email);
+    //                 setIsLoggedIn(true);
+    //                 history.push("/home");
+    //             })
+    //             .catch(() => {
+    //                 console.log("Переданный токен некорректен.");
+    //                 setIsLoggedIn(false);
+    //             });
+    //     }
+    // }
+
     function handleIsToken() {
         const jwt = localStorage.getItem("jwt");
-        if (jwt) {
-            auth.checkToken(jwt)
-                .then((res) => {
+        if (!jwt) {
+            return
+        }
+        auth
+            .checkToken(jwt)
+            .then((res) => {
+                if(res) {
                     setEmail(res.email);
                     setIsLoggedIn(true);
                     history.push("/home");
-                })
-                .catch(() => {
-                    console.log("Переданный токен некорректен.");
-                    setIsLoggedIn(false);
-                });
-        }
+                }
+            })
+            .catch(() => {
+                console.log("Переданный токен некорректен.");
+                setIsLoggedIn(false);
+            });
     }
-
     //---------------------------------------------------------------------------------------------------------------------
 
     // Функция обновления пользователя
