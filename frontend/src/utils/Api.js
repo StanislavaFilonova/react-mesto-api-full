@@ -20,7 +20,11 @@ class Api {
      */
     getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
         }).then(this._checkResponse);
     }
 
@@ -29,7 +33,11 @@ class Api {
      */
     getCards() {
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
         }).then(this._checkResponse);
     }
 
@@ -53,12 +61,16 @@ class Api {
             return;
         }
         const url = `${this._baseUrl}/users/me`;
-        const hdr = this._headers;
+        // const hdr = this._headers;
         hdr["Content-Type"] = "application/json";
 
         const opts = {
             method: "PATCH",
-            headers: hdr,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(userData),
         };
 
@@ -86,12 +98,16 @@ class Api {
         }
 
         const url = `${this._baseUrl}/cards`;
-        const hdr = this._headers;
+        // const hdr = this._headers;
         hdr["Content-Type"] = "application/json";
 
         const opts = {
             method: "POST",
-            headers: hdr,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify(cardData),
         };
 
@@ -110,11 +126,15 @@ class Api {
             return;
         }
         const url = `${this._baseUrl}/cards/${cardId}`;
-        const hdr = this._headers;
-        hdr["Content-Type"] = "application/json";
+        // const hdr = this._headers;
+        // hdr["Content-Type"] = "application/json";
         const opts = {
             method: "DELETE",
-            headers: hdr,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
         };
 
         return fetch(url, opts).then(this._checkResponse);
@@ -153,11 +173,15 @@ class Api {
         }
 
         const url = `${this._baseUrl}/users/me/avatar`;
-        const hdr = this._headers;
-        hdr["Content-Type"] = "application/json";
+        // const hdr = this._headers;
+        // hdr["Content-Type"] = "application/json";
         const opts = {
             method: "PATCH",
-            headers: hdr,
+            headers: {
+                Accept: 'application/json',
+                authorization: `Bearer ${localStorage.getItem('jwt')}`,
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 avatar: avatarLink,
             }),
