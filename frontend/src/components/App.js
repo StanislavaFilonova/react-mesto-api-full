@@ -309,7 +309,6 @@ function App() {
 
     function handleSignOut() {
         setIsLoggedIn(false);
-        setEmail('');
         localStorage.removeItem("jwt");
         history.push("/signin");
     }
