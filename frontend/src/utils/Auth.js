@@ -65,7 +65,16 @@ class Auth {
             },
         }).then(this._checkResponse);
     }
+
+    signOut() {
+        return fetch(`${this._baseUrl}/signout`, {
+            method: "DELETE",
+            credentials: "include",
+        }).then(this._checkResponse);
+    }
+
 }
+
 
 const auth = new Auth({
     // baseUrl: "https://auth.nomoreparties.co",
