@@ -172,9 +172,9 @@ const api = new Api({
     baseUrl: "https://api.mesto.filonova.nomorepartiesxyz.ru",
     headers: {
         // authorization: "08bc75e7-78fb-46ea-8791-989ceb63ff7a",
-        "Content-Type": "application/json",
+        'Content-Type': "application/json",
         credentials: 'include',
-        "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
 });
 
