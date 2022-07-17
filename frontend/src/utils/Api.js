@@ -62,7 +62,7 @@ class Api {
         }
         const url = `${this._baseUrl}/users/me`;
         // const hdr = this._headers;
-        hdr["Content-Type"] = "application/json";
+        // hdr["Content-Type"] = "application/json";
 
         const opts = {
             method: "PATCH",
@@ -99,7 +99,7 @@ class Api {
 
         const url = `${this._baseUrl}/cards`;
         // const hdr = this._headers;
-        hdr["Content-Type"] = "application/json";
+        // hdr["Content-Type"] = "application/json";
 
         const opts = {
             method: "POST",

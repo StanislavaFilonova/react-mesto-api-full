@@ -28,12 +28,12 @@ const login = (req, res, next) => {
     .then((user) => {
       // создадим токен
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' }); // Параметры: пейлоуд токена и секретный ключ
-      res.cookie('jwt', token, {
-        maxAge: 3600000,
-        httpOnly: true,
-        sameSite: 'none',
-        secure: true,
-      });
+      // res.cookie('jwt', token, {
+      //   maxAge: 3600000,
+      //   httpOnly: true,
+      //   sameSite: 'none',
+      //   secure: true,
+      // });
       // вернём токен
       res.send({ token });
       // аутентификация успешна! пользователь в переменной user
@@ -176,14 +176,6 @@ const updateAvatar = (req, res, next) => {
     });
 };
 
-const signOut = (req, res) => {
-  res.clearCookie('jwt', {
-    httpOnly: true,
-    sameSite: 'none',
-    secure: true,
-  })
-    .status(200).send({ message: 'Куки почищены.' });
-};
 // ------------------------------------------------------------------------------------------------
 module.exports = {
   getUsers,
@@ -192,5 +184,4 @@ module.exports = {
   login,
   updateProfile,
   updateAvatar,
-  signOut,
 };

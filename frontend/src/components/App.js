@@ -308,14 +308,10 @@ function App() {
     }
 
     function handleSignOut() {
-        auth.signOut()
-            .then(() => {
-                setIsLoggedIn(false);
-                localStorage.removeItem("jwt");
-                setEmail('');
-                history.push("/signin");
-    })
-
+        setIsLoggedIn(false);
+        setEmail('');
+        localStorage.removeItem("jwt");
+        history.push("/signin");
     }
 
     //---------------------------------------------------------------------------------------------------------------------
