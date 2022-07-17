@@ -31,7 +31,7 @@ const login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000,
         httpOnly: true,
-        sameSite: 'None',
+        sameSite: 'none',
         secure: true,
       });
       // вернём токен
@@ -175,6 +175,15 @@ const updateAvatar = (req, res, next) => {
       }
     });
 };
+
+const signOut = (req, res) => {
+  res.clearCookie('jwt', {
+    httpOnly: true,
+    sameSite: 'none',
+    secure: true,
+  })
+    .status(200).send({ message: 'Куки почищены.' });
+};
 // ------------------------------------------------------------------------------------------------
 module.exports = {
   getUsers,
@@ -183,4 +192,5 @@ module.exports = {
   login,
   updateProfile,
   updateAvatar,
+  signOut,
 };

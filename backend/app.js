@@ -10,6 +10,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const {
   login,
   createUser,
+  signOut
 } = require('./controllers/users');
 
 const allowedCors = require('./utils/utils');
@@ -48,6 +49,7 @@ app.get('/crash-test', () => {
 
 app.post('/signin', validatySignin, login);
 app.post('/signup', validatySignup, createUser);
+app.delete('/signout', signOut);
 
 // авторизация
 app.use(auth);
